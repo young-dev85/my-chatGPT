@@ -1,22 +1,24 @@
 "use client";
-import { ChangeEvent, useActionState, useEffect } from "react";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import { FormCard } from "./FormCard";
-import { Submit } from "./Submit";
+
 import { useFormValidate } from "@/hooks/useFormValidate";
-import { LoginSchema, SignUpSchema } from "@/schemas/auth";
-import { TLoginFormError } from "@/types/form";
-import { FormMessage } from "./FormMessage";
+import { ChangeEvent, useActionState, useEffect } from "react";
 import toast from "react-hot-toast";
+import { FormCard } from "./FormCard";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { FormMessage } from "./FormMessage";
+import { Submit } from "./Submit";
+import { TLoginFormError } from "@/types/form";
+import { LoginSchema } from "@/schemas/auth";
 import { login } from "@/actions/login";
 
-export default function LoginForm() {
-    const [error, action] = useActionState(login, undefined);
-  const {errors, validateField} = 
+export function LoginForm() {
+  const [error, action] = useActionState(login, undefined);
+  const { errors, validateField } =
     useFormValidate<TLoginFormError>(LoginSchema);
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value} = event.target;
+    const { name, value } = event.target;
     validateField(name, value);
   };
 
@@ -36,7 +38,7 @@ export default function LoginForm() {
         <div className="space-y-1">
           <Label htmlFor="email">이메일</Label>
           <Input
-            id="email" 
+            id="email"
             name="email"
             type="email"
             placeholder="example@example.com"
@@ -56,7 +58,7 @@ export default function LoginForm() {
             error={!!errors?.password}
             onChange={handleChange}
           />
-           {errors?.password && <FormMessage message={errors?.password[0]} />}
+          {errors?.password && <FormMessage message={errors?.password[0]} />}
         </div>
         <Submit className="w-full">로그인</Submit>
       </form>
