@@ -5,7 +5,7 @@ import { Label } from "../ui/label";
 import { FormCard } from "./FormCard";
 import { Submit } from "./Submit";
 import { useFormValidate } from "@/hooks/useFormValidate";
-import { LoginSchema, SignUpSchema } from "@/schemas/auth";
+import { LoginSchema/*, SignUpSchema*/ } from "@/schemas/auth";
 import { TLoginFormError } from "@/types/form";
 import { FormMessage } from "./FormMessage";
 import toast from "react-hot-toast";
