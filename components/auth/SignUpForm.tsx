@@ -38,7 +38,7 @@ export function SignUpForm() {
           id="name" 
           name="name" 
           placeholder="이름을 입력해주세요" 
-          error={!!errors?.name}
+          /*error={!!errors?.name}*/
           onChange={handleChange}
           />
           {errors?.name && <FormMessage message={errors?.name[0]} />}
@@ -51,7 +51,7 @@ export function SignUpForm() {
             name="email"
             type="email"
             placeholder="example@example.com"
-            error={!!errors?.email}
+            /*error={!!errors?.email}*/
             onChange={handleChange}
           />
           {errors?.email && <FormMessage message={errors?.email[0]} />}
@@ -64,7 +64,7 @@ export function SignUpForm() {
             name="password"
             type="password"
             placeholder="********"
-            error={!!errors?.password}
+            /*error={!!errors?.password}*/
             onChange={handleChange}
           />
            {errors?.password && <FormMessage message={errors?.password[0]} />}
