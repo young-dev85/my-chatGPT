@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "../ui/select";
 
-const MODELS = ["gpt-3.5-turbo", "gpt-4", "gpt-4o"];
+const MODELS = ["gpt-3.5-turbo", "gpt-4", "gpt-4o", "o1-mini", "o1-preview"];
 
 export function ModelSelect() {
   const { model: currentModel, updateModel } = useModelStore((state) => ({
