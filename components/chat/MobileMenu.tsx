@@ -11,7 +11,7 @@ export function MobileMenu({ children }: { children: React.ReactNode }) {
     setOpen: state.setOpen,
   }));
   return (
-    <div className="md:hidden">
+    <div className="md:inert">
       <Sheet open={open} onOpenChange={(open) => setOpen(open)}>
         <SheetTrigger asChild>
           <Menu />

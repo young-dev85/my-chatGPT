@@ -94,7 +94,9 @@ export function SidebarItem({ item }: Props) {
   };
 
   const clickDelete = (event: MouseEvent<HTMLDivElement>) => {
-    event.preventDefault();
+    console.log(event);
+    //event.preventDefault();
+    // alert(event);
 
     // 모달 로직
     openModal({
@@ -102,6 +104,10 @@ export function SidebarItem({ item }: Props) {
       description: "삭제 후 데이터는 복구하기 어려울 수 있습니다.",
       footer: <ModalFooter onCancel={closeModal} onConfirm={handleDelete} />,
     });
+    // 2024-12-15 모달 작동 하지 않아 comfirm 사용
+    if (window.confirm("정말 삭제하겠습니까? 삭제 후 데이터는 복구하기 어려울 수 있습니다.")) {
+      handleDelete();
+    }
   };
 
   const clickEdit = (event: MouseEvent<HTMLDivElement>) => {
@@ -155,7 +161,7 @@ export function SidebarItem({ item }: Props) {
               <Ellipsis
                 className={cn(
                   "group-hover:block text-gray-400 hover:text-white",
-                  isMenuOpen ? "block text-white" : "md:hidden text-gray-400"
+                  isMenuOpen ? "block text-white" : "md:inert text-gray-400"
                 )}
               />
             </div>
